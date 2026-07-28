@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asif's Art Palace — Custom Portrait Commissions</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Asif's Art Palace</a>
+  <ul class="nav-links">
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#order">Order</a></li>
+  </ul>
+  <a href="#order" class="nav-btn">Commission a portrait</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-badge"><div class="hero-badge-dot"></div>Handcrafted · Coimbatore</div>
+  <h1>
+    <div class="line1">Every face tells</div>
+    <div class="line2"><em>a story worth keeping</em></div>
+  </h1>
+  <p class="hero-sub">Custom pencil and charcoal portraits for birthdays, anniversaries, weddings, and every cherished moment.</p>
+  <div class="hero-actions">
+    <a href="#order" class="btn-blue">Commission your portrait</a>
+    <a href="#portfolio" class="btn-ghost">View my work →</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-n">9+</div><div class="stat-l">Portraits delivered</div></div>
+    <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Handcrafted</div></div>
+    <div class="stat"><div class="stat-n">4.9 ★</div><div class="stat-l">Client rating</div></div>
+    <div class="stat"><div class="stat-n">7 days</div><div class="stat-l">Avg turnaround</div></div>
+  </div>
+</section>
+
+<!-- OCCASIONS STRIP -->
+<div class="occasions-bar">
+  <div class="occ-inner">
+    <span class="occ-label">Perfect for</span>
+    <div class="occ-pill">🎂 Birthdays</div>
+    <div class="occ-pill">💑 Anniversaries</div>
+    <div class="occ-pill">💒 Weddings</div>
+    <div class="occ-pill">🕊️ Memorials</div>
+    <div class="occ-pill">🎓 Graduations</div>
+    <div class="occ-pill">🏠 Home décor</div>
+  </div>
+</div>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="inner">
+    <div class="eyebrow reveal">Portfolio</div>
+    <div class="section-title reveal">A glimpse of recent work</div>
+    <p class="portfolio-note reveal">Recent portrait drawings! </p>
+    <div class="port-grid reveal">
+      <figure class="port-item port-item-wide is-landscape">
+        <div class="port-media">
+          <img src="assets/couple.jpeg" alt="Couple portrait drawing in A4 size" class="port-img">
+        </div>
+        <figcaption class="port-caption-wrap">
+          <div class="port-tag">Couple · A4</div>
+          <div class="port-name">couple portrait</div>
+          <div class="port-meta">Charcoal · Portrait drawing</div>
+        </figcaption>
+      </figure> 
+      <figure class="port-item port-item-portrait is-portrait">
+        <div class="port-media">
+          <img src="assets/family.jpeg" alt="Family portrait drawing with five members in A2 size" class="port-img">
+        </div>
+        <figcaption class="port-caption-wrap">
+          <div class="port-tag">Family · A2</div>
+          <div class="port-name">5 family members</div>
+          <div class="port-meta">Large-format drawing · Charcoal</div>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="portfolio-more" id="portfolioMore">
+      <div class="more-grid">
+        <figure class="port-item is-landscape">
+          <div class="port-media">
+            <img src="assets/friendship%201.jpeg" alt="Two friends together portrait drawing in A4 size" class="port-img">
+          </div>
+          <figcaption class="port-caption-wrap">
+            <div class="port-tag">Friends · A4</div>
+            <div class="port-name">friends</div>
+            <div class="port-meta">Charcoal · Portrait drawing</div>
+          </figcaption>
+        </figure>
+        <figure class="port-item is-landscape">
+          <div class="port-media">
+            <img src="assets/friendship%202.jpeg" alt="Two friends portrait drawing in A5 size" class="port-img">
+          </div>
+          <figcaption class="port-caption-wrap">
+            <div class="port-tag">Friends · A5</div>
+            <div class="port-name">friends</div>
+            <div class="port-meta">Charcoal · Portrait drawing</div>
+          </figcaption>
+        </figure>
+        <figure class="port-item port-item-full is-landscape">
+          <div class="port-media">
+            <img src="assets/Couple2.jpeg" alt="Couple portrait drawing in A3 size" class="port-img">
+          </div>
+          <figcaption class="port-caption-wrap">
+            <div class="port-tag">Couple · A3</div>
+            <div class="port-name">couple portrait </div>
+            <div class="port-meta">Charcoal · Portrait drawing</div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="portfolio-actions reveal">
+      <button class="view-more-btn btn-ghost" type="button" id="portfolioToggle" aria-controls="portfolioMore" aria-expanded="false">View more drawings</button>
+      <a href="#order" class="btn-blue">Commission yours →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="price-section">
+  <div class="inner">
+    <div class="eyebrow reveal">Pricing</div>
+    <div class="section-title reveal">Simple, transparent pricing</div>
+    <div class="price-grid reveal">
+
+      <div class="price-card">
+        <div class="pc-tier">A6 · Per face</div>
+        <div class="pc-name">Mini Portrait</div>
+        <div class="pc-price"><span>₹</span>300</div>
+        <p class="pc-short">Best for a small single-face portrait.</p>
+        <div class="pc-mini">40% advance to confirm.</div>
+        <a href="#order" class="btn-ghost" style="display:block;text-align:center;font-size:13px;">Order now</a>
+      </div>
+
+      <div class="price-card star">
+        <div class="star-badge">Most popular</div>
+        <div class="pc-tier">A5 · Per face</div>
+        <div class="pc-name">Compact Portrait</div>
+        <div class="pc-price"><span>₹</span>400</div>
+        <p class="pc-short">Simple and neat for small portraits or gifts.</p>
+        <div class="pc-mini">40% advance to confirm.</div>
+        <a href="#order" class="btn-blue" style="display:block;text-align:center;font-size:13px;">Order now</a>
+      </div>
+
+      <div class="price-card">
+        <div class="pc-tier">A4 · Per face</div>
+        <div class="pc-name">Classic Portrait</div>
+        <div class="pc-price"><span>₹</span>600</div>
+        <p class="pc-short">Balanced size for most portrait requests.</p>
+        <div class="pc-mini">40% advance to confirm.</div>
+        <a href="#order" class="btn-ghost" style="display:block;text-align:center;font-size:13px;">Order now</a>
+      </div>
+
+      <div class="price-card">
+        <div class="pc-tier">A3 · Per face</div>
+        <div class="pc-name">Premium Portrait</div>
+        <div class="pc-price"><span>₹</span>1,200</div>
+        <p class="pc-short">Bigger canvas for more detail and impact.</p>
+        <div class="pc-mini">40% advance to confirm.</div>
+        <a href="#order" class="btn-blue" style="display:block;text-align:center;font-size:13px;">Order now</a>
+      </div>
+
+      <div class="price-card">
+        <div class="pc-tier">A2 · Per face</div>
+        <div class="pc-name">Grand Portrait</div>
+        <div class="pc-price"><span>₹</span>1,700</div>
+        <p class="pc-short">Best for family and group portraits.</p>
+        <div class="pc-mini">40% advance to confirm.</div>
+        <a href="#order" class="btn-ghost" style="display:block;text-align:center;font-size:13px;">Order now</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="inner">
+    <div class="eyebrow reveal">Process</div>
+    <div class="section-title reveal">Simple steps from order to delivery</div>
+    <div class="steps-grid reveal" style="position:relative;">
+      <div class="steps-line"></div>
+      <div class="step-box">
+        <div class="step-num">1</div>
+        <div class="step-title">Confirm your order</div>
+        <div class="step-desc">Fill the form and pay 40% advance to start your portrait.</div>
+      </div>
+      <div class="step-box">
+        <div class="step-num">2</div>
+        <div class="step-title">Send your reference</div>
+        <div class="step-desc">Send the screenshot or reference photo of the portrait on WhatsApp.</div>
+      </div>
+      <div class="step-box">
+        <div class="step-num">3</div>
+        <div class="step-title">Review progress</div>
+        <div class="step-desc">I’ll share updates while the portrait is being drawn.</div>
+      </div>
+      <div class="step-box">
+        <div class="step-num">4</div>
+        <div class="step-title">Pay balance and receive</div>
+        <div class="step-desc">Pay the remaining amount and get your finished portrait.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER -->
+<section id="order" class="order-sect">
+  <div class="inner">
+    <div class="order-grid single">
+      <div class="reveal order-header">
+        <div class="eyebrow">Commission</div>
+        <div class="section-title" style="margin-bottom:12px;">Place your order in one message</div>
+        <p class="order-note">Send your name, number, size, order option, and special instructions. I’ll reply on WhatsApp with the next step.</p>
+        <ul class="order-points">
+          <li>Name and WhatsApp number</li>
+          <li>Size and order option</li>
+          <li>Extra specifications</li>
+        </ul>
+        <a class="channel-card" href="https://www.youtube.com/channel/UCWHKMwJiSI5mBS03qqLN22Q" target="_blank" rel="noopener noreferrer">
+          <span class="channel-badge">Channel</span>
+          <span class="channel-text">
+            <span class="channel-title">Visit my channel</span>
+            <span class="channel-sub">Watch drawings, updates, and portrait videos</span>
+          </span>
+          <span class="channel-arrow">↗</span>
+        </a>
+      </div>
+      <div class="reveal">
+        <div class="form-card compact">
+          <div class="f-row">
+            <div>
+              <label class="f-label">Your name</label>
+              <input class="f-input" type="text" id="fname" placeholder="Full name">
+            </div>
+            <div>
+              <label class="f-label">WhatsApp number</label>
+              <input class="f-input" type="tel" id="fphone" placeholder="98XXXXXXXX">
+            </div>
+          </div>
+          <div class="f-row">
+            <div>
+              <label class="f-label">Size</label>
+              <select class="f-select" id="fsize">
+                <option value="">Select size</option>
+                <option>A6</option>
+                <option>A5</option>
+                <option>A4</option>
+                <option>A3</option>
+                <option>A2</option>
+              </select>
+            </div>
+            <div>
+              <label class="f-label">Order option</label>
+              <select class="f-select" id="forder">
+                <option value="">Select option</option>
+                <option>Single portrait</option>
+                <option>Couple portrait</option>
+                <option>Friends portrait</option>
+                <option>Family portrait</option>
+                <option>Custom portrait</option>
+              </select>
+            </div>
+          </div>
+          <label class="f-label">Special instructions</label>
+          <textarea class="f-textarea" id="fnotes" placeholder="Background preference, expression, anything specific..."></textarea>
+          <button class="f-btn" onclick="order()">Proceed to order →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">Asif's Art Palace</div>
+  <div class="f-tag">Handcrafted portraits for every precious moment — Coimbatore, Tamil Nadu</div>
+  <ul class="f-links">
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#order">Order</a></li>
+  </ul>
+  <div class="f-copy">© 2026 Asif's Art Palace · All portraits handcrafted with love</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
+
