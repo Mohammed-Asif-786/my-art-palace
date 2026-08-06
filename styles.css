@@ -1,4 +1,4 @@
-/* GöÇGöÇ CURSOR GöÇGöÇ */
+/* Gï¿½ï¿½Gï¿½ï¿½ CURSOR Gï¿½ï¿½Gï¿½ï¿½ */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; cursor:none !important; }
 
 #cursor-dot {
@@ -19,7 +19,7 @@
   will-change: transform;
 }
 
-/* When hovering a clickable GÇö transform ring into a rounded square */
+/* When hovering a clickable Gï¿½ï¿½ transform ring into a rounded square */
 body.hovering #cursor-ring {
   width: 48px; height: 48px;
   border-radius: 10px;
@@ -35,7 +35,7 @@ body.clicking #cursor-ring {
   background: rgba(77,184,255,0.14);
 }
 
-/* GöÇGöÇ VARIABLES GöÇGöÇ */
+/* Gï¿½ï¿½Gï¿½ï¿½ VARIABLES Gï¿½ï¿½Gï¿½ï¿½ */
 :root {
   --bg: #060c14;
   --bg2: #0a1220;
@@ -61,7 +61,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--white);
 .reveal { opacity:0; transform:translateY(32px); transition:opacity 0.7s ease, transform 0.7s ease; }
 .reveal.visible { opacity:1; transform:none; }
 
-/* GöÇGöÇ NAV GöÇGöÇ */
+/* Gï¿½ï¿½Gï¿½ï¿½ NAV Gï¿½ï¿½Gï¿½ï¿½ */
 nav {
   position:fixed; top:0; left:0; right:0; z-index:500;
   display:flex; align-items:center; justify-content:space-between;
@@ -90,7 +90,7 @@ nav {
 }
 .nav-btn:hover { background:rgba(77,184,255,0.18); box-shadow:0 0 20px rgba(77,184,255,0.15); }
 
-/* GöÇGöÇ HERO GöÇGöÇ */
+/* Gï¿½ï¿½Gï¿½ï¿½ HERO Gï¿½ï¿½Gï¿½ï¿½ */
 .hero {
   min-height:100vh; display:flex; flex-direction:column;
   align-items:center; justify-content:center;
@@ -162,7 +162,7 @@ nav {
 }
 .stat-l { font-size:12px; color:var(--muted); margin-top:4px; letter-spacing:0.5px; }
 
-/* GöÇGöÇ SHARED SECTION GöÇGöÇ */
+/* Gï¿½ï¿½Gï¿½ï¿½ SHARED SECTION Gï¿½ï¿½Gï¿½ï¿½ */
 section { padding:100px 24px; }
 .inner { max-width:1100px; margin:0 auto; }
 .eyebrow {
@@ -176,7 +176,7 @@ section { padding:100px 24px; }
   line-height:1.2; max-width:580px; margin-bottom:52px;
 }
 
-/* GöÇGöÇ OCCASIONS STRIP GöÇGöÇ */
+/* Gï¿½ï¿½Gï¿½ï¿½ OCCASIONS STRIP Gï¿½ï¿½Gï¿½ï¿½ */
 .occasions-bar {
   background:var(--bg2);
   border-top:1px solid var(--glass-border);
@@ -196,7 +196,7 @@ section { padding:100px 24px; }
 }
 .occ-pill:hover { background:rgba(77,184,255,0.18); box-shadow:0 0 16px rgba(77,184,255,0.12); }
 
-/* GöÇGöÇ PORTFOLIO GöÇGöÇ */
+/* Gï¿½ï¿½Gï¿½ï¿½ PORTFOLIO Gï¿½ï¿½Gï¿½ï¿½ */
 .port-grid {
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -243,7 +243,8 @@ section { padding:100px 24px; }
 .port-img {
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;
+  object-position:center;
   display:block;
 }
 .port-caption-wrap {
@@ -316,7 +317,7 @@ section { padding:100px 24px; }
   min-width:220px;
 }
 
-/* GöÇGöÇ PRICING GöÇGöÇ */
+/* Gï¿½ï¿½Gï¿½ï¿½ PRICING Gï¿½ï¿½Gï¿½ï¿½ */
 .price-section { background:var(--bg2); border-top:1px solid var(--glass-border); }
 .pricing-note {
   max-width:640px;
@@ -366,7 +367,7 @@ section { padding:100px 24px; }
   margin-bottom:18px;
 }
 
-/* GöÇGöÇ PROCESS GöÇGöÇ */
+/* Gï¿½ï¿½Gï¿½ï¿½ PROCESS Gï¿½ï¿½Gï¿½ï¿½ */
 .steps-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; position:relative; }
 .steps-line {
   position:absolute; top:32px; left:80px; right:80px; height:1px;
@@ -387,7 +388,7 @@ section { padding:100px 24px; }
 .step-title { font-size:15px; font-weight:600; margin-bottom:10px; }
 .step-desc { font-size:13px; color:var(--muted); line-height:1.65; }
 
-/* GöÇGöÇ ORDER GöÇGöÇ */
+/* Gï¿½ï¿½Gï¿½ï¿½ ORDER Gï¿½ï¿½Gï¿½ï¿½ */
 .order-sect { background:var(--bg2); border-top:1px solid var(--glass-border); }
 .order-grid { display:grid; grid-template-columns:1fr; gap:28px; align-items:start; max-width:780px; }
 .order-header { max-width:620px; }
@@ -494,7 +495,7 @@ section { padding:100px 24px; }
 }
 .f-btn:hover { box-shadow:0 0 28px rgba(77,184,255,0.4); transform:translateY(-1px); }
 
-/* GöÇGöÇ FOOTER GöÇGöÇ */
+/* Gï¿½ï¿½Gï¿½ï¿½ FOOTER Gï¿½ï¿½Gï¿½ï¿½ */
 footer {
   background:var(--bg2); border-top:1px solid var(--glass-border);
   padding:52px 24px 32px; text-align:center;
@@ -506,7 +507,7 @@ footer {
 .f-links a:hover { color:var(--blue); }
 .f-copy { font-size:12px; color:var(--muted); }
 
-/* GöÇGöÇ MOBILE GöÇGöÇ */
+/* Gï¿½ï¿½Gï¿½ï¿½ MOBILE Gï¿½ï¿½Gï¿½ï¿½ */
 @media(max-width:768px){
   nav { padding:0 20px; }
   .nav-links { display:none; }
