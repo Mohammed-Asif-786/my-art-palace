@@ -229,23 +229,22 @@ section { padding:100px 24px; }
   aspect-ratio:1 / 1;
   background:radial-gradient(circle at top, rgba(77,184,255,0.08), rgba(14,25,41,0.95));
   overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 .port-item-wide .port-media,
 .port-item.is-landscape .port-media { aspect-ratio:4 / 3; }
 .port-item-portrait .port-media,
 .port-item.is-portrait .port-media { aspect-ratio:3 / 4; }
-.port-item-wide .port-img,
-.port-item.is-landscape .port-img {
-  object-fit:contain;
-  object-position:center;
-  background:linear-gradient(180deg, rgba(6,12,20,0.08), rgba(6,12,20,0.18));
-}
 .port-img {
-  width:100%;
-  height:100%;
+  display:block;
+  max-width:100%;
+  max-height:100%;
+  width:auto;
+  height:auto;
   object-fit:contain;
   object-position:center;
-  display:block;
 }
 .port-caption-wrap {
   padding:18px 18px 20px;
