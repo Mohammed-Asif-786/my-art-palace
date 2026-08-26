@@ -1,6 +1,7 @@
 // Paste the deployed Google Apps Script Web App URL ending in /exec here.
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxZbq4l1yE-zXb8dLSRd5fiY4m-vxI0e0PtHpXSQS1bOnlta-7if3dGOYcTnfYgSOnQ/exec';
 const MAX_IMAGE_SIZE = 5 * 1024 * 1024;
+const REQUEST_TIMEOUT = 90000;
 const form = document.getElementById('orderForm');
 const statusMessage = form.querySelector('.form-status');
 const submitButton = form.querySelector('.submit-button');
@@ -66,11 +67,28 @@ photoInput.addEventListener('change', () => {
   reader.readAsDataURL(file);
 });
 
-function fileToBase64(file) {
+function normalizeIndianPhone(value) {
+  const digits = value.replace(/\D/g, '');
+  if (digits.length === 10 && /^[6-9]/.test(digits)) return digits;
+  if (digits.length === 12 && digits.startsWith('91') && /^9[6-9]/.test(digits.slice(2))) return digits.slice(2);
+  return '';
+}
+
+function compressImage(file) {
   return new Promise((resolve, reject) => {
+    const image = new Image();
     const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
+    reader.onload = () => { image.src = reader.result; };
     reader.onerror = reject;
+    image.onload = () => {
+      const scale = Math.min(1, 1800 / Math.max(image.naturalWidth, image.naturalHeight));
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(image.naturalWidth * scale);
+      canvas.height = Math.round(image.naturalHeight * scale);
+      canvas.getContext('2d').drawImage(image, 0, 0, canvas.width, canvas.height);
+      resolve(canvas.toDataURL('image/jpeg', 0.82));
+    };
+    image.onerror = reject;
     reader.readAsDataURL(file);
   });
 }
@@ -89,6 +107,13 @@ form.addEventListener('submit', async event => {
     return;
   }
 
+  const phone = normalizeIndianPhone(document.getElementById('phone').value);
+  if (!phone) {
+    showStatus('Please enter a valid Indian mobile number, such as +91 78543 87656.', 'error');
+    document.getElementById('phone').focus();
+    return;
+  }
+
   const file = photoInput.files[0];
   if (!file || !file.type.startsWith('image/') || file.size > MAX_IMAGE_SIZE) {
     showStatus('Please add an image smaller than 5MB.', 'error');
@@ -102,12 +127,13 @@ form.addEventListener('submit', async event => {
   submitButton.disabled = true;
   submitButton.firstChild.textContent = 'Sending...';
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 30000);
+  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT);
 
   try {
     const payload = Object.fromEntries(new FormData(form).entries());
-    payload.photoBase64 = await fileToBase64(file);
-    payload.photoName = file.name;
+    payload.phone = phone;
+    payload.photoBase64 = await compressImage(file);
+    payload.photoName = `${file.name.replace(/\.[^.]+$/, '')}.jpg`;
     const response = await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
