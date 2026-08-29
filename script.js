@@ -38,12 +38,82 @@ document.querySelectorAll('.filter').forEach(button => button.addEventListener('
 }));
 
 const lightbox = document.getElementById('lightbox');
+let zoomLevel = 1;
+let isDragging = false;
+let startX = 0, startY = 0, offsetX = 0, offsetY = 0;
+
 document.querySelectorAll('.gallery-item').forEach(item => item.addEventListener('click', () => {
   const image = lightbox.querySelector('img');
   image.src = item.dataset.full;
   image.alt = item.querySelector('img').alt;
+  zoomLevel = 1;
+  offsetX = 0;
+  offsetY = 0;
+  image.style.transform = 'scale(1) translate(0, 0)';
   lightbox.showModal();
 }));
+
+const lightboxImg = lightbox.querySelector('img');
+
+// Zoom with scroll wheel
+lightbox.addEventListener('wheel', (e) => {
+  if (lightboxImg.src) {
+    e.preventDefault();
+    zoomLevel += e.deltaY > 0 ? -0.1 : 0.1;
+    zoomLevel = Math.max(0.5, Math.min(zoomLevel, 3));
+    lightboxImg.style.transform = `scale(${zoomLevel}) translate(${offsetX}px, ${offsetY}px)`;
+  }
+}, { passive: false });
+
+// Zoom with pinch (mobile)
+let lastDistance = 0;
+lightbox.addEventListener('touchstart', (e) => {
+  if (e.touches.length === 2) {
+    const dx = e.touches[0].clientX - e.touches[1].clientX;
+    const dy = e.touches[0].clientY - e.touches[1].clientY;
+    lastDistance = Math.sqrt(dx * dx + dy * dy);
+  } else if (e.touches.length === 1) {
+    isDragging = true;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+  }
+}, { passive: false });
+
+lightbox.addEventListener('touchmove', (e) => {
+  if (e.touches.length === 2) {
+    e.preventDefault();
+    const dx = e.touches[0].clientX - e.touches[1].clientX;
+    const dy = e.touches[0].clientY - e.touches[1].clientY;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    const delta = (distance - lastDistance) * 0.01;
+    zoomLevel += delta;
+    zoomLevel = Math.max(0.5, Math.min(zoomLevel, 3));
+    lightboxImg.style.transform = `scale(${zoomLevel}) translate(${offsetX}px, ${offsetY}px)`;
+    lastDistance = distance;
+  } else if (isDragging && zoomLevel > 1) {
+    e.preventDefault();
+    const moveX = (e.touches[0].clientX - startX) / zoomLevel;
+    const moveY = (e.touches[0].clientY - startY) / zoomLevel;
+    offsetX += moveX;
+    offsetY += moveY;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    lightboxImg.style.transform = `scale(${zoomLevel}) translate(${offsetX}px, ${offsetY}px)`;
+  }
+}, { passive: false });
+
+lightbox.addEventListener('touchend', () => {
+  isDragging = false;
+});
+
+// Double-tap to reset zoom
+lightboxImg.addEventListener('dblclick', () => {
+  zoomLevel = 1;
+  offsetX = 0;
+  offsetY = 0;
+  lightboxImg.style.transform = 'scale(1) translate(0, 0)';
+});
+
 lightbox.addEventListener('click', event => {
   if (event.target === lightbox || event.target.classList.contains('close-lightbox')) lightbox.close();
 });
